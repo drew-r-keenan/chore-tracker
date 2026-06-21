@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
+  <meta name="theme-color" content="#E8954A" />
+  <title>Chore Quest</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🧹&lt;/text&gt;&lt;/svg&gt;" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">🧹</span>
+        <span class="brand-name">Chore Quest</span>
+      </div>
+      <div class="topbar-stats" id="topbar-stats"><!-- level / streak rendered here --></div>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" title="Toggle theme">◐</button>
+    </header>
+
+    <!-- Banners (storage warnings, pairing prompts, sync status) -->
+    <div id="banners" aria-live="polite"></div>
+
+    <!-- Main views -->
+    <main id="main">
+      <section class="view" id="view-week" aria-label="This week"></section>
+      <section class="view" id="view-stats" hidden aria-label="Stats"></section>
+      <section class="view" id="view-chores" hidden aria-label="Manage chores"></section>
+      <section class="view" id="view-settings" hidden aria-label="Settings"></section>
+    </main>
+
+    <!-- Bottom tab bar -->
+    <nav class="tabbar" aria-label="Primary">
+      <button class="tab" data-tab="week" aria-current="page"><span class="tab-ico">🏠</span><span class="tab-lbl">Week</span></button>
+      <button class="tab" data-tab="stats"><span class="tab-ico">📊</span><span class="tab-lbl">Stats</span></button>
+      <button class="tab" data-tab="chores"><span class="tab-ico">📋</span><span class="tab-lbl">Chores</span></button>
+      <button class="tab" data-tab="settings"><span class="tab-ico">⚙️</span><span class="tab-lbl">Settings</span></button>
+    </nav>
+  </div>
+
+  <!-- Bottom sheet / modal -->
+  <div id="sheet-backdrop" class="sheet-backdrop" hidden>
+    <div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"></div>
+  </div>
+
+  <!-- Snackbar (undo) -->
+  <div id="snackbar" class="snackbar" hidden></div>
+  <!-- Toast / celebration (aria-live for badges & level-ups) -->
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <!-- Confetti -->
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
